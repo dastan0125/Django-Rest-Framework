@@ -8,9 +8,7 @@ from .models import Category, Genre, Movie, MovieShots, Actor, Rating, RatingSta
 
 
 class MovieAdminForm(forms.ModelForm):
-    """Форма с виджетом ckeditor"""
     description = forms.CharField(label="Описание", widget=CKEditorUploadingWidget())
-
 
     class Meta:
         model = Movie
@@ -19,13 +17,11 @@ class MovieAdminForm(forms.ModelForm):
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    """Категории"""
     list_display = ("name", "url")
     list_display_links = ("name",)
 
 
 class ReviewInline(admin.TabularInline):
-    """Отзывы на странице фильма"""
     model = Review
     extra = 1
     readonly_fields = ("name", "email")
@@ -44,7 +40,6 @@ class MovieShotsInline(admin.TabularInline):
 
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-    """Фильмы"""
     list_display = ("title", "category", "url", "draft")
     list_filter = ("category", "year")
     search_fields = ("title", "category__name")

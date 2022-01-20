@@ -3,9 +3,11 @@ from rest_framework import generics, permissions, viewsets
 from .models import Movie, Actor
 from .serializers import MovieListSerializer, MovieDetailSerializer, ReviewCreateSerializer, CreateRatingSerializer, \
     ActorListSerializer, ActorDetailSerializer
-from .service import get_client_ip, MovieFilter
+from .service import get_client_ip, MovieFilter, PaginationMovies
 
 from django_filters.rest_framework import DjangoFilterBackend
+
+from django.db import models
 
 
 class MovieViewSet(viewsets.ReadOnlyModelViewSet):

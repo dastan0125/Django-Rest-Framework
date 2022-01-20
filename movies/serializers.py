@@ -8,7 +8,7 @@ class MovieListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Movie
-        fields = ('title', "tagline", 'category')
+        fields = ("id", "title", "tagline")
 
 
 
@@ -21,10 +21,9 @@ class ReviewCreateSerializer(serializers.ModelSerializer):
 
 class ReviewSerializer(serializers.ModelSerializer):
     """Вывод отзыва"""
-
     class Meta:
         model = Review
-        fields = ('name', 'text', 'parent')
+        fields = ("id", "title", "tagline", "category")
 
 
 class MovieDetailSerializer(serializers.ModelSerializer):
